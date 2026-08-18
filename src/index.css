@@ -77,15 +77,50 @@
   animation: sound-wave 0.9s ease-in-out 0.1s infinite;
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.animate-shimmer {
-  background: linear-gradient(90deg, #0f172a 0%, #0284c7 50%, #0f172a 100%);
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: text-shimmer 4s linear infinite;
+@keyframes orbit-counter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
 }
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.06);
+  }
+}
+
+.animate-orbit-slow {
+  animation: orbit-spin 35s linear infinite;
+}
+
+.animate-orbit-counter {
+  animation: orbit-counter 35s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-spin 45s linear infinite reverse;
+}
+
+.animate-orbit-counter-reverse {
+  animation: orbit-counter 45s linear infinite reverse;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 3.5s ease-in-out infinite;
+}
+

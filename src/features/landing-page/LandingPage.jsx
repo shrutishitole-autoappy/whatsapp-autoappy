@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
+import MessagingSection from './components/MessagingSection';
 import ConnectSection from './components/ConnectSection';
 import Footer from './components/Footer';
 
@@ -10,6 +11,7 @@ export default function LandingPage() {
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
+        <MessagingSection />
         <ConnectSection />
       </main>
       <Footer />
