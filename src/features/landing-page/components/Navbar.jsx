@@ -13,23 +13,23 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100/80 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100/90 transition-all duration-300 w-full max-w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         {/* Brand Logo */}
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-cyan-500 flex items-center justify-center shadow-md shadow-sky-500/20">
-            <MessageSquare className="w-5 h-5 text-white stroke-[2.5]" />
+        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-cyan-500 flex items-center justify-center shadow-md shadow-sky-500/20">
+            <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-white stroke-[2.5]" />
           </div>
-          <span className="text-xl font-bold text-slate-800 tracking-tight">WhatsApp</span>
+          <span className="text-lg sm:text-xl font-bold text-slate-800 tracking-tight">WhatsApp</span>
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-4 lg:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors duration-200"
+              className="text-xs lg:text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors duration-200 whitespace-nowrap"
             >
               {link.name}
             </a>
@@ -37,23 +37,22 @@ export default function Navbar() {
         </nav>
 
         {/* Auth / Action Buttons */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-3 lg:gap-6 shrink-0">
           <a
             href="#login"
-            className="text-sm font-semibold text-sky-700 hover:text-sky-800 transition-colors duration-200"
+            className="text-xs lg:text-sm font-semibold text-sky-700 hover:text-sky-800 transition-colors duration-200 px-2 py-1"
           >
-            Log in
           </a>
           <a
             href="#download"
-            className="px-6 py-2.5 rounded-full bg-[#006699] hover:bg-[#005580] text-white text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+            className="px-4 sm:px-5 lg:px-6 py-2 sm:py-2.5 rounded-full bg-[#006699] hover:bg-[#005580] text-white text-xs lg:text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
           >
-            Download
+            Book Demo 
           </a>
         </div>
 
         {/* Mobile Menu Trigger */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100 transition-colors"
