@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../hooks/useAuth';
 import {
   ChevronLeft,
   ChevronRight,
@@ -21,16 +23,16 @@ import {
   SmilePlus,
 } from 'lucide-react';
 
-// Floating emojis from the reference image placed in a rounded layout around the right text
+// Floating emojis positioned in an elevated rounded ring around the card perimeter
 const orbitalEmojis = [
-  { id: 'grad', emoji: '🎓', label: 'Education', pos: '-top-5 left-12 lg:left-16', delay: '0s', color: 'text-purple-600' },
-  { id: 'mail', emoji: '✉️', label: 'Mail', pos: '-top-5 right-12 lg:right-16', delay: '0.4s', color: 'text-indigo-600' },
-  { id: 'chat', emoji: '💬', label: 'Chat', pos: 'top-1/4 -right-4 sm:-right-6', delay: '0.8s', color: 'text-emerald-600' },
-  { id: 'basket', emoji: '🧺', label: 'Shopping', pos: 'top-2/3 -right-4 sm:-right-6', delay: '1.2s', color: 'text-amber-600' },
-  { id: 'sports', emoji: '⚽', label: 'Sports', pos: '-bottom-5 right-12 lg:right-16', delay: '1.6s', color: 'text-blue-600' },
-  { id: 'dining', emoji: '🍽️', label: 'Dining', pos: '-bottom-5 left-12 lg:left-16', delay: '2.0s', color: 'text-rose-600' },
-  { id: 'checklist', emoji: '📋', label: 'Tasks', pos: 'top-2/3 -left-3 sm:-left-5', delay: '2.4s', color: 'text-violet-600' },
-  { id: 'calendar', emoji: '📅', label: 'Calendar', pos: 'top-1/4 -left-3 sm:-left-5', delay: '2.8s', color: 'text-sky-600' },
+  { id: 'grad', emoji: '🎓', label: 'Education', pos: '-top-5 sm:-top-6 left-[18%]', delay: '0s' },
+  { id: 'mail', emoji: '✉️', label: 'Mail', pos: '-top-5 sm:-top-6 right-[18%]', delay: '0.4s' },
+  { id: 'calendar', emoji: '📅', label: 'Calendar', pos: 'top-[24%] -left-5 sm:-left-6', delay: '0.8s' },
+  { id: 'chat', emoji: '💬', label: 'Chat', pos: 'top-[24%] -right-5 sm:-right-6', delay: '1.2s' },
+  { id: 'checklist', emoji: '📋', label: 'Tasks', pos: 'top-[64%] -left-5 sm:-left-6', delay: '1.6s' },
+  { id: 'basket', emoji: '🧺', label: 'Shopping', pos: 'top-[64%] -right-5 sm:-right-6', delay: '2.0s' },
+  { id: 'dining', emoji: '🍽️', label: 'Dining', pos: '-bottom-5 sm:-bottom-6 left-[18%]', delay: '2.4s' },
+  { id: 'sports', emoji: '⚽', label: 'Sports', pos: '-bottom-5 sm:-bottom-6 right-[18%]', delay: '2.8s' },
 ];
 
 const chatList = [
@@ -94,40 +96,58 @@ const chatList = [
 
 export default function MessagingSection() {
   const [isSwapped, setIsSwapped] = useState(false);
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+
+  const handleStartChatting = (e) => {
+    e.preventDefault();
+    if (isAuthenticated) {
+      navigate('/chat');
+    } else {
+      navigate('/login');
+    }
+  };
 
   const featureItems = [
     {
       icon: MessageSquare,
       title: 'Instant messaging',
       description: 'Real-time chat with no delays.',
+      isDarkIcon: false,
     },
     {
       icon: ImageIcon,
       title: 'Media sharing',
       description: 'Send photos and videos securely.',
+      isDarkIcon: false,
     },
     {
       icon: Mic2,
       title: 'Voice messages',
       description: 'Express more with your voice.',
+      isDarkIcon: true,
     },
     {
       icon: SmilePlus,
       title: 'Emoji reactions',
       description: 'Quick responses to any message.',
+      isDarkIcon: false,
     },
   ];
 
   return (
-    <section id="messaging" className="py-16 sm:py-20 lg:py-28 bg-[#f8fbfe] relative overflow-hidden w-full max-w-full">
-      {/* Background Soft Glow Orbs */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[min(800px,95vw)] h-[350px] bg-sky-200/20 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-1/4 w-[min(500px,80vw)] h-[300px] bg-blue-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
+    <section id="messaging" className="py-20 sm:py-24 lg:py-28 bg-gradient-to-b from-[#f5f9fd] via-[#f8fbfe] to-[#edf5fc] relative overflow-hidden w-full max-w-full">
+      {/* Background Soft Glow Orbs with Subtle Diffused Depth */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[min(900px,95vw)] h-[400px] bg-gradient-to-tr from-sky-200/25 via-blue-100/20 to-sky-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-1/4 w-[min(600px,80vw)] h-[350px] bg-gradient-to-br from-blue-100/30 to-sky-200/20 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-container">
         {/* Top Centered Section Headline */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0B3B60] tracking-tight leading-[1.14] break-words">
+          <div className="flex items-center justify-center mb-4">
+            <span className="section-eyebrow">Messaging Platform</span>
+          </div>
+          <h2 className="section-heading text-theme-950">
             Simple messaging.
             <br />
             Powerful connections.
@@ -475,22 +495,25 @@ export default function MessagingSection() {
           {/* Right Column: Dedicated Card surrounded by Rounded Moving Emojis */}
           <div className="lg:col-span-6 relative flex flex-col justify-center w-full">
             
+            {/* Ambient Lighting Glow Behind Card */}
+            <div className="absolute -inset-2 bg-gradient-to-tr from-sky-200/30 via-blue-100/20 to-sky-100/30 rounded-[44px] sm:rounded-[52px] blur-2xl -z-10 pointer-events-none opacity-80" />
+
             {/* ── Surrounding Rounded Card with Orbiting Emoji Badges around its perimeter ── */}
-            <div className="relative p-5 sm:p-8 lg:p-10 rounded-[28px] sm:rounded-[36px] bg-white/85 border border-sky-100/90 shadow-[0_15px_45px_-10px_rgba(11,59,96,0.08)] backdrop-blur-sm w-full">
+            <div className="relative p-6 sm:p-9 lg:p-12 rounded-[32px] sm:rounded-[44px] bg-white/95 backdrop-blur-xl border border-sky-100/80 shadow-[0_24px_70px_-15px_rgba(11,59,96,0.10),0_8px_24px_-6px_rgba(2,132,199,0.06),inset_0_1px_2px_rgba(255,255,255,0.95)] ring-1 ring-slate-900/[0.02] w-full">
               
               {/* 8 Moving / Floating Emojis arranged in a rounded ring around the card perimeter */}
               {orbitalEmojis.map((item) => (
                 <div
                   key={item.id}
-                  className={`absolute ${item.pos} z-20 pointer-events-auto transition-transform hover:scale-125 duration-200 hidden md:block`}
+                  className={`absolute ${item.pos} z-20 pointer-events-auto transition-transform hover:scale-115 duration-300 hidden md:block`}
                   style={{ animationDelay: item.delay }}
                   title={item.label}
                 >
                   <div 
-                    className="animate-float-gentle flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-2xl bg-white shadow-[0_6px_20px_rgba(11,59,96,0.12)] border border-slate-100 hover:border-sky-300 hover:shadow-[0_10px_25px_rgba(2,132,199,0.25)] transition-all cursor-pointer"
+                    className="animate-float-gentle flex items-center justify-center w-11 h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14 rounded-2xl sm:rounded-[22px] bg-white/95 backdrop-blur-md border border-white/90 shadow-[0_12px_28px_-4px_rgba(11,59,96,0.13),0_4px_10px_rgba(2,132,199,0.08),inset_0_1px_1px_rgba(255,255,255,1)] ring-1 ring-sky-950/[0.04] hover:shadow-[0_18px_36px_-4px_rgba(2,132,199,0.25),0_6px_16px_rgba(11,59,96,0.12)] hover:border-sky-200 transition-all duration-300 cursor-pointer"
                     style={{ animationDelay: item.delay }}
                   >
-                    <span className="text-lg lg:text-2xl select-none filter drop-shadow-xs">
+                    <span className="text-xl sm:text-2xl select-none filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.08)]">
                       {item.emoji}
                     </span>
                   </div>
@@ -499,42 +522,52 @@ export default function MessagingSection() {
 
               {/* Title & Description */}
               <div className="space-y-3 sm:space-y-4">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight break-words">
+                <h3 className="sub-heading text-theme-950">
                   Everything you need for better conversations.
                 </h3>
-                <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-xl">
+                <p className="body-text">
                   Experience lightning-fast messaging that keeps you connected across any distance. Reliable, secure, and built for the modern pace of life.
                 </p>
               </div>
 
               {/* 2x2 Feature Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-5 sm:gap-y-6 pt-5 sm:pt-6">
-                {featureItems.map(({ icon: Icon, title, description }) => (
-                  <div key={title} className="flex items-start gap-3 sm:gap-3.5 group min-w-0">
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-sky-50 border border-sky-100/80 flex items-center justify-center shrink-0 text-[#0284c7] group-hover:bg-[#0B3B60] group-hover:border-[#0B3B60] group-hover:text-white transition-all duration-300 shadow-2xs">
-                      <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5 transition-colors duration-300" />
-                    </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-5 sm:gap-y-6 pt-5 sm:pt-6">
+                {featureItems.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.title} className="flex items-start gap-3.5 group min-w-0">
+                      <div
+                        className={`w-11 h-11 sm:w-12 sm:h-12 rounded-[14px] flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-105 ${
+                          item.isDarkIcon
+                            ? 'bg-[#1e3a58] text-white shadow-[0_4px_14px_rgba(11,59,96,0.22)] group-hover:bg-[#162d45]'
+                            : 'bg-sky-50/90 border border-sky-200/60 text-[#0284c7] shadow-[0_2px_8px_rgba(2,132,199,0.06)] group-hover:border-sky-300'
+                        }`}
+                      >
+                        <Icon className="w-5 h-5 sm:w-5.5 sm:h-5.5 stroke-[2]" />
+                      </div>
 
-                    <div className="space-y-0.5 sm:space-y-1 min-w-0">
-                      <h4 className="text-sm sm:text-[15px] font-bold text-slate-900 leading-snug break-words">
-                        {title}
-                      </h4>
-                      <p className="text-xs sm:text-[13px] text-slate-500 leading-normal break-words">
-                        {description}
-                      </p>
+                      <div className="space-y-0.5 sm:space-y-1 min-w-0">
+                        <h4 className="text-sm sm:text-[15px] font-bold text-slate-900 leading-snug break-words">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs sm:text-[13px] text-slate-500 leading-normal break-words">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* CTA Button */}
               <div className="pt-6 sm:pt-8 flex flex-wrap items-center gap-4">
-                <a
-                  href="#start-chatting"
-                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#0284c7] to-[#38bdf8] text-white font-semibold text-xs sm:text-sm shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 w-full sm:w-auto"
+                <button
+                  type="button"
+                  onClick={handleStartChatting}
+                  className="px-5 lg:px-6 py-2 sm:py-2.5 rounded-full bg-primary hover:bg-primary-dark text-white text-[15px] font-semibold transition-all duration-200 shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap cursor-pointer"
                 >
                   Start Chatting
-                </a>
+                </button>
               </div>
 
               {/* Mobile-friendly Emoji Strip */}
