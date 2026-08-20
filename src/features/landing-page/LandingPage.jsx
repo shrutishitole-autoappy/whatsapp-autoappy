@@ -2,7 +2,9 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import MessagingSection from './components/MessagingSection';
+import SolutionsSection from './components/SolutionsSection';
 import ConnectSection from './components/ConnectSection';
+import SecuritySection from './components/SecuritySection';
 import Footer from './components/Footer';
 
 export default function LandingPage() {
@@ -12,11 +14,11 @@ export default function LandingPage() {
       <main className="flex-grow w-full max-w-full overflow-x-hidden">
         <HeroSection />
         <MessagingSection />
+        <SolutionsSection />
         <ConnectSection />
+        <SecuritySection />
       </main>
       <Footer />
     </div>
   );
 }
-
-
