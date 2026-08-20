@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { MessageSquare, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -7,19 +8,21 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Features', href: '#features' },
     { name: 'Messaging', href: '#messaging' },
-    { name: 'Calling', href: '#calling' },
+    { name: 'Solution', href: '#Solution' },
     { name: 'Security', href: '#security' },
     { name: 'Business', href: '#business' },
   ];
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100/90 transition-all duration-300 w-full max-w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <div className="section-container h-16 flex items-center justify-between">
         {/* Brand Logo */}
-        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-cyan-500 flex items-center justify-center shadow-md shadow-sky-500/20">
-            <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-white stroke-[2.5]" />
-          </div>
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <img
+            src="/logo/autoappy_robot.jpg"
+            alt="AutoAppy Robot"
+            className="w-9 h-9 sm:w-11 sm:h-11 object-contain drop-shadow-sm"
+          />
           <span className="text-lg sm:text-xl font-bold text-slate-800 tracking-tight">WhatsApp</span>
         </div>
 
@@ -29,7 +32,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-xs lg:text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors duration-200 whitespace-nowrap"
+              className="text-[15px] font-medium text-slate-600 hover:text-primary transition-colors duration-200 whitespace-nowrap"
             >
               {link.name}
             </a>
@@ -38,14 +41,15 @@ export default function Navbar() {
 
         {/* Auth / Action Buttons */}
         <div className="hidden md:flex items-center gap-3 lg:gap-6 shrink-0">
-          <a
-            href="#login"
-            className="text-xs lg:text-sm font-semibold text-sky-700 hover:text-sky-800 transition-colors duration-200 px-2 py-1"
+          <Link
+            to="/login"
+            className="text-[15px] font-semibold text-primary hover:text-primary-dark transition-colors duration-200 px-2 py-1"
           >
-          </a>
+            Log in
+          </Link>
           <a
             href="#download"
-            className="px-4 sm:px-5 lg:px-6 py-2 sm:py-2.5 rounded-full bg-[#006699] hover:bg-[#005580] text-white text-xs lg:text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
+            className="px-5 lg:px-6 py-2 sm:py-2.5 rounded-full bg-primary hover:bg-primary-dark text-white text-[15px] font-semibold transition-all duration-200 shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
           >
             Book Demo 
           </a>
@@ -79,17 +83,18 @@ export default function Navbar() {
             ))}
           </div>
           <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
-            <a
-              href="#login"
-              className="text-center py-2 text-sm font-semibold text-sky-700"
+            <Link
+              to="/login"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-center py-2 text-sm font-semibold text-primary"
             >
               Log in
-            </a>
+            </Link>
             <a
               href="#download"
-              className="text-center py-2.5 rounded-full bg-[#006699] text-white text-sm font-medium shadow-sm"
+              className="text-center py-2.5 rounded-full bg-primary hover:bg-primary-dark text-white text-sm font-semibold shadow-sm"
             >
-              Download
+              Book Demo
             </a>
           </div>
         </div>
