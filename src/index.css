@@ -271,7 +271,7 @@
 .phone-wrapper {
   position: relative;
   width: 100%;
-  max-width: clamp(320px, 24vw, 365px);
+  max-width: clamp(278px, 20.6vw, 316px);
   margin-inline: auto;
   display: flex;
   justify-content: center;
