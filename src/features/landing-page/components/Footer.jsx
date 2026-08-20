@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -21,15 +21,17 @@ export default function Footer() {
 
   return (
     <footer className="bg-slate-50 border-t border-slate-200/80 transition-colors w-full max-w-full overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+      <div className="section-container py-10 sm:py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-8 sm:pb-10 border-b border-slate-200/60">
           
           {/* Brand Info */}
           <div className="md:col-span-6 space-y-3">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-600 to-cyan-500 flex items-center justify-center shadow-xs">
-                <MessageSquare className="w-4 h-4 text-white stroke-[2.5]" />
-              </div>
+            <div className="flex items-center gap-2">
+              <img
+                src="/logo/autoappy_robot.jpg"
+                alt="AutoAppy Robot"
+                className="w-9 h-9 object-contain drop-shadow-sm"
+              />
               <span className="text-lg font-bold text-slate-900 tracking-tight">WhatsApp</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-500 max-w-sm leading-relaxed font-normal">
@@ -45,7 +47,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-xs sm:text-sm text-slate-600 hover:text-sky-600 transition-colors duration-200"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-colors duration-200"
                   >
                     {link.name}
                   </a>
@@ -62,7 +64,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-xs sm:text-sm text-slate-600 hover:text-sky-600 transition-colors duration-200"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-colors duration-200"
                   >
                     {link.name}
                   </a>
@@ -80,7 +82,7 @@ export default function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-sky-600 transition-colors duration-200 cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-primary transition-colors duration-200 cursor-pointer"
             aria-label="Back to top"
           >
             <span>Back to top</span>
