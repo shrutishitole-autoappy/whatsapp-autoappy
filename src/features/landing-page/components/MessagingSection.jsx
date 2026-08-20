@@ -21,18 +21,26 @@ import {
   Image as ImageIcon,
   Mic2,
   SmilePlus,
+  GraduationCap,
+  Mail,
+  Calendar,
+  MessageCircle,
+  ClipboardCheck,
+  ShoppingBasket,
+  Utensils,
+  Volleyball,
 } from 'lucide-react';
 
-// Floating emojis positioned in an elevated rounded ring around the card perimeter
-const orbitalEmojis = [
-  { id: 'grad', emoji: '🎓', label: 'Education', pos: '-top-5 sm:-top-6 left-[18%]', delay: '0s' },
-  { id: 'mail', emoji: '✉️', label: 'Mail', pos: '-top-5 sm:-top-6 right-[18%]', delay: '0.4s' },
-  { id: 'calendar', emoji: '📅', label: 'Calendar', pos: 'top-[24%] -left-5 sm:-left-6', delay: '0.8s' },
-  { id: 'chat', emoji: '💬', label: 'Chat', pos: 'top-[24%] -right-5 sm:-right-6', delay: '1.2s' },
-  { id: 'checklist', emoji: '📋', label: 'Tasks', pos: 'top-[64%] -left-5 sm:-left-6', delay: '1.6s' },
-  { id: 'basket', emoji: '🧺', label: 'Shopping', pos: 'top-[64%] -right-5 sm:-right-6', delay: '2.0s' },
-  { id: 'dining', emoji: '🍽️', label: 'Dining', pos: '-bottom-5 sm:-bottom-6 left-[18%]', delay: '2.4s' },
-  { id: 'sports', emoji: '⚽', label: 'Sports', pos: '-bottom-5 sm:-bottom-6 right-[18%]', delay: '2.8s' },
+// Floating orbital line icons positioned in an elevated rounded ring around the card perimeter
+const orbitalElements = [
+  { id: 'grad', icon: GraduationCap, label: 'Education', pos: '-top-4 sm:-top-5 left-[15%] sm:left-[18%]', delay: '0s' },
+  { id: 'mail', icon: Mail, label: 'Mail', pos: '-top-4 sm:-top-5 right-[15%] sm:right-[18%]', delay: '0.4s' },
+  { id: 'calendar', icon: Calendar, label: 'Calendar', pos: 'top-[24%] -left-3 sm:-left-4 lg:-left-5', delay: '0.8s' },
+  { id: 'chat', icon: MessageCircle, label: 'Chat', pos: 'top-[24%] -right-3 sm:-right-4 lg:-right-5', delay: '1.2s' },
+  { id: 'checklist', icon: ClipboardCheck, label: 'Tasks', pos: 'top-[64%] -left-3 sm:-left-4 lg:-left-5', delay: '1.6s' },
+  { id: 'basket', icon: ShoppingBasket, label: 'Shopping', pos: 'top-[64%] -right-3 sm:-right-4 lg:-right-5', delay: '2.0s' },
+  { id: 'dining', icon: Utensils, label: 'Dining', pos: '-bottom-4 sm:-bottom-5 left-[15%] sm:left-[18%]', delay: '2.4s' },
+  { id: 'sports', icon: Volleyball, label: 'Sports', pos: '-bottom-4 sm:-bottom-5 right-[15%] sm:right-[18%]', delay: '2.8s' },
 ];
 
 const chatList = [
@@ -136,17 +144,14 @@ export default function MessagingSection() {
   ];
 
   return (
-    <section id="messaging" className="py-20 sm:py-24 lg:py-28 bg-gradient-to-b from-[#f5f9fd] via-[#f8fbfe] to-[#edf5fc] relative overflow-hidden w-full max-w-full">
+    <section id="messaging" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-[#f5f9fd] via-[#f8fbfe] to-[#edf5fc] relative overflow-hidden w-full max-w-full">
       {/* Background Soft Glow Orbs with Subtle Diffused Depth */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[min(900px,95vw)] h-[400px] bg-gradient-to-tr from-sky-200/25 via-blue-100/20 to-sky-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-1/4 w-[min(600px,80vw)] h-[350px] bg-gradient-to-br from-blue-100/30 to-sky-200/20 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="section-container">
         {/* Top Centered Section Headline */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20">
-          <div className="flex items-center justify-center mb-4">
-            <span className="section-eyebrow">Messaging Platform</span>
-          </div>
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 lg:mb-12">
           <h2 className="section-heading text-theme-950">
             Simple messaging.
             <br />
@@ -155,30 +160,30 @@ export default function MessagingSection() {
         </div>
 
         {/* 2-Column Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-center">
           
           {/* Left Column: Overlapping Dual iOS WhatsApp Phone Screens with Green Circular Backdrop */}
-          <div className="lg:col-span-6 flex justify-center items-center relative min-h-[480px] xs:min-h-[540px] sm:min-h-[620px] w-full">
+          <div className="lg:col-span-6 xl:col-span-5 flex justify-center items-center relative min-h-[440px] xs:min-h-[480px] sm:min-h-[520px] lg:min-h-[540px] w-full">
             
             {/* Green Atmospheric Circular Glow matching the reference */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(380px,85vw)] h-[min(380px,85vw)] sm:w-[480px] sm:h-[480px] bg-gradient-to-tr from-emerald-400/40 via-green-300/30 to-emerald-500/20 rounded-full blur-2xl pointer-events-none -z-0" />
-            <div className="absolute top-8 -left-4 sm:-left-8 w-48 sm:w-64 h-48 sm:h-64 bg-emerald-500/30 rounded-full filter blur-xl pointer-events-none -z-0" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(360px,85vw)] h-[min(360px,85vw)] sm:w-[420px] sm:h-[420px] bg-gradient-to-tr from-emerald-400/40 via-green-300/30 to-emerald-500/20 rounded-full blur-2xl pointer-events-none -z-0" />
+            <div className="absolute top-8 -left-4 sm:-left-8 w-44 sm:w-56 h-44 sm:h-56 bg-emerald-500/30 rounded-full filter blur-xl pointer-events-none -z-0" />
 
             {/* Container for Overlapping Phones with 3D Perspective */}
-            <div className="relative w-full max-w-[340px] xs:max-w-[420px] sm:max-w-[500px] md:max-w-[540px] h-[500px] xs:h-[550px] sm:h-[620px] flex items-center justify-center mx-auto [perspective:1200px] select-none">
+            <div className="relative w-full max-w-[320px] xs:max-w-[380px] sm:max-w-[440px] md:max-w-[460px] h-[460px] xs:h-[490px] sm:h-[530px] flex items-center justify-center mx-auto [perspective:1200px] select-none">
 
               {/* ── PHONE A: Martha Craig Chat Conversation ── */}
               <div
                 onClick={() => setIsSwapped((prev) => !prev)}
-                className={`absolute w-[215px] xs:w-[260px] sm:w-[295px] md:w-[315px] h-[430px] xs:h-[480px] sm:h-[545px] md:h-[575px] rounded-[44px] sm:rounded-[50px] p-[3px] bg-gradient-to-b from-[#f1f5f9] via-[#94a3b8] to-[#64748b] cursor-pointer transition-all duration-800 ${
+                className={`absolute w-[205px] xs:w-[245px] sm:w-[268px] md:w-[280px] lg:w-[270px] xl:w-[285px] h-[410px] xs:h-[450px] sm:h-[485px] md:h-[510px] lg:h-[495px] xl:h-[520px] rounded-[38px] sm:rounded-[44px] p-[2.5px] bg-gradient-to-b from-[#f1f5f9] via-[#94a3b8] to-[#64748b] cursor-pointer transition-all duration-800 ${
                   isSwapped
                     ? 'z-30 opacity-100 shadow-[0_30px_70px_rgba(15,23,42,0.32),0_0_0_1px_rgba(255,255,255,0.8)_inset]'
                     : 'z-10 opacity-92 hover:opacity-100 shadow-[0_15px_40px_rgba(0,0,0,0.18)]'
                 }`}
                 style={{
                   transform: isSwapped
-                    ? 'translate3d(45px, 0px, 30px) rotateY(-3deg) rotateZ(0deg) scale(1)'
-                    : 'translate3d(-55px, 18px, -30px) rotateY(6deg) rotateZ(-3deg) scale(0.93)',
+                    ? 'translate3d(32px, 0px, 24px) rotateY(-3deg) rotateZ(0deg) scale(1)'
+                    : 'translate3d(-38px, 14px, -24px) rotateY(6deg) rotateZ(-3deg) scale(0.94)',
                   transition: 'transform 800ms cubic-bezier(0.34, 1.2, 0.64, 1), opacity 700ms ease, box-shadow 800ms ease',
                   transformStyle: 'preserve-3d',
                 }}
@@ -305,15 +310,15 @@ export default function MessagingSection() {
               {/* ── PHONE B: WhatsApp Chats List Screen ── */}
               <div
                 onClick={() => setIsSwapped((prev) => !prev)}
-                className={`absolute w-[215px] xs:w-[260px] sm:w-[295px] md:w-[315px] h-[430px] xs:h-[480px] sm:h-[545px] md:h-[575px] rounded-[44px] sm:rounded-[50px] p-[3px] bg-gradient-to-b from-[#f1f5f9] via-[#94a3b8] to-[#64748b] cursor-pointer transition-all duration-800 ${
+                className={`absolute w-[205px] xs:w-[245px] sm:w-[268px] md:w-[280px] lg:w-[270px] xl:w-[285px] h-[410px] xs:h-[450px] sm:h-[485px] md:h-[510px] lg:h-[495px] xl:h-[520px] rounded-[38px] sm:rounded-[44px] p-[2.5px] bg-gradient-to-b from-[#f1f5f9] via-[#94a3b8] to-[#64748b] cursor-pointer transition-all duration-800 ${
                   !isSwapped
                     ? 'z-30 opacity-100 shadow-[0_30px_70px_rgba(15,23,42,0.32),0_0_0_1px_rgba(255,255,255,0.8)_inset]'
                     : 'z-10 opacity-92 hover:opacity-100 shadow-[0_15px_40px_rgba(0,0,0,0.18)]'
                 }`}
                 style={{
                   transform: !isSwapped
-                    ? 'translate3d(45px, 0px, 30px) rotateY(-3deg) rotateZ(0deg) scale(1)'
-                    : 'translate3d(-55px, 18px, -30px) rotateY(6deg) rotateZ(-3deg) scale(0.93)',
+                    ? 'translate3d(32px, 0px, 24px) rotateY(-3deg) rotateZ(0deg) scale(1)'
+                    : 'translate3d(-38px, 14px, -24px) rotateY(6deg) rotateZ(-3deg) scale(0.94)',
                   transition: 'transform 800ms cubic-bezier(0.34, 1.2, 0.64, 1), opacity 700ms ease, box-shadow 800ms ease',
                   transformStyle: 'preserve-3d',
                 }}
@@ -493,32 +498,33 @@ export default function MessagingSection() {
           </div>
 
           {/* Right Column: Dedicated Card surrounded by Rounded Moving Emojis */}
-          <div className="lg:col-span-6 relative flex flex-col justify-center w-full">
+          <div className="lg:col-span-6 xl:col-span-7 relative flex flex-col justify-center w-full px-2 sm:px-4 lg:px-0">
             
             {/* Ambient Lighting Glow Behind Card */}
-            <div className="absolute -inset-2 bg-gradient-to-tr from-sky-200/30 via-blue-100/20 to-sky-100/30 rounded-[44px] sm:rounded-[52px] blur-2xl -z-10 pointer-events-none opacity-80" />
+            <div className="absolute -inset-2 bg-gradient-to-tr from-sky-200/30 via-blue-100/20 to-sky-100/30 rounded-[38px] sm:rounded-[46px] blur-2xl -z-10 pointer-events-none opacity-80" />
 
             {/* ── Surrounding Rounded Card with Orbiting Emoji Badges around its perimeter ── */}
-            <div className="relative p-6 sm:p-9 lg:p-12 rounded-[32px] sm:rounded-[44px] bg-white/95 backdrop-blur-xl border border-sky-100/80 shadow-[0_24px_70px_-15px_rgba(11,59,96,0.10),0_8px_24px_-6px_rgba(2,132,199,0.06),inset_0_1px_2px_rgba(255,255,255,0.95)] ring-1 ring-slate-900/[0.02] w-full">
+            <div className="relative p-5 sm:p-7 lg:p-8 xl:p-10 rounded-[28px] sm:rounded-[36px] bg-white/95 backdrop-blur-xl border border-sky-100/80 shadow-[0_20px_50px_-12px_rgba(11,59,96,0.08),0_6px_18px_-4px_rgba(2,132,199,0.05),inset_0_1px_2px_rgba(255,255,255,0.95)] ring-1 ring-slate-900/[0.02] w-full">
               
-              {/* 8 Moving / Floating Emojis arranged in a rounded ring around the card perimeter */}
-              {orbitalEmojis.map((item) => (
-                <div
-                  key={item.id}
-                  className={`absolute ${item.pos} z-20 pointer-events-auto transition-transform hover:scale-115 duration-300 hidden md:block`}
-                  style={{ animationDelay: item.delay }}
-                  title={item.label}
-                >
-                  <div 
-                    className="animate-float-gentle flex items-center justify-center w-11 h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14 rounded-2xl sm:rounded-[22px] bg-white/95 backdrop-blur-md border border-white/90 shadow-[0_12px_28px_-4px_rgba(11,59,96,0.13),0_4px_10px_rgba(2,132,199,0.08),inset_0_1px_1px_rgba(255,255,255,1)] ring-1 ring-sky-950/[0.04] hover:shadow-[0_18px_36px_-4px_rgba(2,132,199,0.25),0_6px_16px_rgba(11,59,96,0.12)] hover:border-sky-200 transition-all duration-300 cursor-pointer"
+              {/* 8 Floating line-style icon badges arranged in a rounded ring around the card perimeter */}
+              {orbitalElements.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.id}
+                    className={`absolute ${item.pos} z-20 pointer-events-auto transition-transform hover:scale-110 duration-300 hidden md:block`}
                     style={{ animationDelay: item.delay }}
+                    title={item.label}
                   >
-                    <span className="text-xl sm:text-2xl select-none filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.08)]">
-                      {item.emoji}
-                    </span>
+                    <div 
+                      className="animate-float-gentle flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 lg:w-11 lg:h-11 xl:w-12 xl:h-12 rounded-xl sm:rounded-2xl bg-white border border-[#50B8E7]/30 shadow-[0_8px_20px_-4px_rgba(80,184,231,0.18),0_3px_8px_rgba(15,23,42,0.04),inset_0_1px_1px_rgba(255,255,255,1)] hover:shadow-[0_14px_28px_-4px_rgba(80,184,231,0.30),0_5px_12px_rgba(15,23,42,0.06)] hover:border-[#50B8E7]/60 transition-all duration-300 cursor-pointer"
+                      style={{ animationDelay: item.delay }}
+                    >
+                      <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#50B8E7] stroke-[1.8]" />
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
 
               {/* Title & Description */}
               <div className="space-y-3 sm:space-y-4">
@@ -570,21 +576,24 @@ export default function MessagingSection() {
                 </button>
               </div>
 
-              {/* Mobile-friendly Emoji Strip */}
+              {/* Mobile-friendly Icon Strip */}
               <div className="md:hidden pt-5 border-t border-slate-100 mt-5">
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
                   Connected Activities
                 </p>
                 <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-                  {orbitalEmojis.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-xs shrink-0"
-                    >
-                      <span className="text-base">{item.emoji}</span>
-                      <span className="text-xs font-medium text-slate-700">{item.label}</span>
-                    </div>
-                  ))}
+                  {orbitalElements.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <div
+                        key={item.id}
+                        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white border border-[#50B8E7]/30 shadow-xs shrink-0"
+                      >
+                        <Icon className="w-4 h-4 text-[#50B8E7] stroke-[1.8]" />
+                        <span className="text-xs font-medium text-slate-700">{item.label}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 

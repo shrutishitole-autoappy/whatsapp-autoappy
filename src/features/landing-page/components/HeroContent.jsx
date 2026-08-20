@@ -11,14 +11,14 @@ export default function HeroContent() {
         </span>
       </div>
 
-      {/* Main Headline */}
-      <h1 className="hero-title hero-heading break-words">
-        Turn{' '}
-        <span className="animate-shimmer">
-          Conversations
-        </span>{' '}
-        Into Conversions
-      </h1>
+     {/* Main Headline */}
+<h1 className="hero-title hero-heading break-words">
+  Turn Every WhatsApp{' '}
+  <span className="animate-shimmer">
+    Conversation
+  </span>{' '}
+  Into <span className="animate-shimmer">Growth</span>
+</h1>
 
       {/* Subtitle / Body Copy */}
       <p className="hero-subtitle leading-relaxed font-normal max-w-[520px]">
@@ -35,7 +35,7 @@ export default function HeroContent() {
           href="#get-started"
           className="inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-slate-50 border border-slate-200/80 text-slate-700 font-semibold text-sm sm:text-[15px] hover:bg-slate-100 hover:text-slate-900 hover:border-slate-300 transition-all duration-200 shadow-xs hover:shadow-sm"
         >
-          Get Started
+          Start Free Trial
         </a>
 
         {/* Book Demo */}

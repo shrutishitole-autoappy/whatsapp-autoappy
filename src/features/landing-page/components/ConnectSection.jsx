@@ -377,12 +377,6 @@ export default function ConnectSection() {
         <div className="section-container">
           {/* Section Header — reduced bottom margin */}
           <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3 mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/60 shadow-2xs">
-              <Zap className="w-3.5 h-3.5 text-sky-600 fill-sky-600" />
-              <span className="text-xs font-bold text-sky-800 tracking-wide uppercase">
-                Core Capabilities
-              </span>
-            </div>
 
             <h2 className="section-heading text-theme-950">
               Everything you need to automate WhatsApp.
@@ -409,31 +403,26 @@ export default function ConnectSection() {
       ====================================================== */}
       <section
         id="download"
-        className="py-20 sm:py-24 lg:py-28 bg-white border-t border-slate-100 relative overflow-hidden w-full max-w-full"
+        className="py-8 sm:py-10 lg:py-12 bg-white border-t border-slate-100 relative overflow-hidden w-full max-w-full"
       >
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[min(700px,90vw)] h-[400px] bg-sky-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
 
         <div className="section-container">
-          <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/60 shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-sky-600 fill-sky-600" />
-              <span className="text-xs font-bold text-sky-800 tracking-wide uppercase">
-                Cross-Platform Freedom
-              </span>
-            </div>
+          <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-2.5 mb-5 sm:mb-6">
+            
 
             <h2 className="section-heading text-theme-950">
               Automate from anywhere, anytime.
             </h2>
 
-            <p className="text-sm sm:text-base lg:text-lg text-slate-500 max-w-xl mx-auto leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto leading-relaxed font-normal">
               Switch seamlessly between your phone, browser, and desktop while keeping your
               conversations, leads, and automation workflows synchronized.
             </p>
           </div>
 
-          <div className="flex flex-col items-center gap-4 mb-8 sm:mb-12 w-full">
-            <div className="inline-flex p-1 sm:p-1.5 bg-slate-100/80 backdrop-blur-md rounded-full border border-slate-200 shadow-inner max-w-full overflow-x-auto scrollbar-none">
+          <div className="flex justify-center mb-3 sm:mb-4 w-full">
+            <div className="w-full max-w-[340px] sm:max-w-[350px] p-1 bg-slate-100/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-slate-200/80 shadow-xs grid grid-cols-3 gap-1">
               {devices.map((d, idx) => {
                 const TabIcon = d.icon;
                 const isActive = activeDeviceIndex === idx;
@@ -442,23 +431,23 @@ export default function ConnectSection() {
                   <button
                     key={d.id}
                     onClick={() => handleSelectDevice(idx)}
-                    className={`relative overflow-hidden flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-xs sm:text-sm transition-all duration-300 whitespace-nowrap cursor-pointer shrink-0 ${
+                    className={`relative overflow-hidden flex items-center justify-center gap-1.5 px-2 py-2 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-[12.5px] transition-all duration-200 cursor-pointer ${
                       isActive
-                        ? 'bg-primary text-white shadow-lg shadow-primary/25 scale-[1.02]'
+                        ? 'bg-primary text-white shadow-sm shadow-primary/20'
                         : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
                     }`}
                   >
                     {isActive && (
                       <span
-                        className="absolute bottom-0 left-0 h-1 bg-secondary transition-all duration-75 rounded-full"
+                        className="absolute bottom-0 left-0 h-0.5 bg-secondary transition-all duration-75 rounded-full"
                         style={{ width: `${progress}%` }}
                       />
                     )}
 
                     <TabIcon
-                      className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isActive ? 'text-secondary' : 'text-slate-400'}`}
+                      className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-secondary' : 'text-slate-500'}`}
                     />
-                    <span>{d.label}</span>
+                    <span className="truncate">{d.label}</span>
                   </button>
                 );
               })}
@@ -466,44 +455,44 @@ export default function ConnectSection() {
           </div>
 
           <div
-            className={`rounded-[24px] sm:rounded-[36px] border-2 ${active.border} ${active.bg} p-5 sm:p-8 lg:p-12 shadow-[0_20px_50px_-10px_rgba(11,59,96,0.08)] transition-all duration-500 relative overflow-hidden w-full`}
+            className={`rounded-[20px] sm:rounded-[28px] border-2 ${active.border} ${active.bg} p-4 sm:p-6 lg:p-7 shadow-[0_16px_40px_-10px_rgba(11,59,96,0.08)] transition-all duration-500 relative overflow-hidden w-full`}
           >
             <div
               key={active.id}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center animate-in fade-in zoom-in-95 duration-400"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center animate-in fade-in zoom-in-95 duration-400"
             >
-              <div className="lg:col-span-6 flex flex-col justify-center space-y-5 sm:space-y-7 min-w-0">
+              <div className="lg:col-span-6 flex flex-col justify-center space-y-3 sm:space-y-4 min-w-0">
                 <div className="inline-flex items-center gap-2 w-fit">
                   <span
-                    className={`px-3 sm:px-3.5 py-1 rounded-full text-xs font-bold border ${active.badgeColor} shadow-2xs`}
+                    className={`px-2.5 sm:px-3 py-0.5 rounded-full text-[11px] sm:text-xs font-bold border ${active.badgeColor} shadow-2xs`}
                   >
                     {active.badge}
                   </span>
                 </div>
 
-                <div className="space-y-2.5 sm:space-y-3">
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight break-words">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 leading-tight break-words">
                     {active.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {active.subtitle}
                   </p>
                 </div>
 
-                <div className="space-y-2.5 sm:space-y-3.5 pt-1 sm:pt-2">
+                <div className="space-y-1.5 sm:space-y-2 pt-0.5 sm:pt-1">
                   {active.bullets.map((b) => (
                     <div
                       key={b.title}
-                      className="flex items-start gap-3 sm:gap-3.5 p-3 sm:p-3.5 rounded-2xl bg-white/70 backdrop-blur-xs border border-slate-100/90 shadow-2xs hover:bg-white transition-colors min-w-0"
+                      className="flex items-start gap-2.5 sm:gap-3 p-2 sm:p-2.5 rounded-xl bg-white/70 backdrop-blur-xs border border-slate-100/90 shadow-2xs hover:bg-white transition-colors min-w-0"
                     >
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-sky-100 text-[#0284c7] flex items-center justify-center shrink-0 mt-0.5">
-                        <CheckCircle2 className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-sky-100 text-[#0284c7] flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </div>
                       <div className="min-w-0">
-                        <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug break-words">
+                        <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 leading-snug break-words">
                           {b.title}
                         </h4>
-                        <p className="text-[11px] sm:text-xs text-slate-500 leading-normal mt-0.5 break-words">
+                        <p className="text-[10.5px] sm:text-[11.5px] text-slate-500 leading-tight mt-0.5 break-words">
                           {b.desc}
                         </p>
                       </div>
@@ -511,15 +500,15 @@ export default function ConnectSection() {
                   ))}
                 </div>
 
-                <div className="pt-2 sm:pt-3 flex flex-wrap items-center gap-4">
+                <div className="pt-1.5 sm:pt-2 flex flex-wrap items-center gap-3.5">
                   <a
                     href={active.ctaLink}
-                    className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl bg-[#0B3B60] hover:bg-[#082b47] text-white font-semibold text-xs sm:text-sm shadow-md shadow-sky-900/15 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 w-full sm:w-auto"
+                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-[#0B3B60] hover:bg-[#082b47] text-white font-semibold text-xs sm:text-[13px] shadow-md shadow-sky-900/15 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 w-full sm:w-auto"
                   >
                     <span>{active.ctaText}</span>
                   </a>
 
-                  <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-500 font-medium">
                     <Shield className="w-3.5 h-3.5 text-emerald-500" />
                     <span>End-to-End Encrypted</span>
                   </div>
@@ -527,17 +516,17 @@ export default function ConnectSection() {
               </div>
 
               <div className="lg:col-span-6 relative flex items-center justify-center w-full">
-                <div className="relative w-full max-w-[500px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(11,59,96,0.2)] ring-1 ring-slate-900/10 bg-white p-2 sm:p-2.5 transition-all duration-500 hover:scale-[1.01]">
-                  <div className="absolute top-3 sm:top-5 right-3 sm:right-5 z-20 bg-white/90 backdrop-blur-md px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold text-slate-800 shadow-md border border-slate-100 flex items-center gap-1.5">
+                <div className="relative w-full max-w-[460px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(11,59,96,0.18)] ring-1 ring-slate-900/10 bg-white p-1.5 sm:p-2 transition-all duration-500 hover:scale-[1.01]">
+                  <div className="absolute top-2.5 sm:top-3.5 right-2.5 sm:right-3.5 z-20 bg-white/90 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-bold text-slate-800 shadow-md border border-slate-100 flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     <span>{active.floatingBadge}</span>
                   </div>
 
-                  <div className="rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900/5 max-h-[300px] sm:max-h-[380px] flex items-center justify-center">
+                  <div className="rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900/5 max-h-[240px] sm:max-h-[280px] lg:max-h-[290px] flex items-center justify-center">
                     <img
                       src={active.image}
                       alt={active.imageAlt}
-                      className="w-full h-auto max-h-[300px] sm:max-h-[380px] object-cover"
+                      className="w-full h-auto max-h-[240px] sm:max-h-[280px] lg:max-h-[290px] object-cover"
                     />
                   </div>
                 </div>

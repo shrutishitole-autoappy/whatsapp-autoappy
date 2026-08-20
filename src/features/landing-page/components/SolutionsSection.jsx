@@ -146,15 +146,7 @@ export default function SolutionsSection() {
           }`}
         >
           {/* Theme-matched label badge */}
-          <div
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border shadow-sm"
-            style={{ background: '#e3f0fb', borderColor: '#8ac8ef' }}
-          >
-            <Sparkles className="w-3.5 h-3.5" style={{ color: '#147db5', fill: '#147db5' }} />
-            <span className="text-xs font-bold tracking-wide uppercase" style={{ color: '#135d91' }}>
-              Proven Architecture
-            </span>
-          </div>
+          
 
           {/* theme-900 headline – matches SecuritySection headline */}
           <h2
