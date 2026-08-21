@@ -6,6 +6,7 @@ import PublicRoutes from './PublicRoutes';
 const LandingPage = lazy(() => import('../features/landing-page/LandingPage'));
 const Security    = lazy(() => import('../pages/Security/Security'));
 const Solutions   = lazy(() => import('../pages/Solutions/Solutions'));
+const Business    = lazy(() => import('../pages/Business/Business'));
 const Login       = lazy(() => import('../pages/Login/Login'));
 const Signup      = lazy(() => import('../pages/Signup/Signup'));
 const ChatPage    = lazy(() => import('../pages/Chat/ChatPage'));
@@ -27,6 +28,7 @@ export default function AppRoutes() {
         <Route path="/security" element={<Security />} />
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/solution" element={<Solutions />} />
+        <Route path="/business" element={<Business />} />
 
         {/* Public-only routes — authenticated users bounce to /chat */}
         <Route element={<PublicRoutes />}>
