@@ -3,9 +3,12 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import MessagingSection from './components/MessagingSection';
 import SolutionsSection from './components/SolutionsSection';
+import BusinessSection from './components/BusinessSection';
 import ConnectSection from './components/ConnectSection';
 import SecuritySection from './components/SecuritySection';
+import BookDemoSection from './components/BookDemoSection';
 import Footer from './components/Footer';
+
 
 export default function LandingPage() {
   return (
@@ -15,8 +18,10 @@ export default function LandingPage() {
         <HeroSection />
         <MessagingSection />
         <SolutionsSection />
+        <BusinessSection />
         <ConnectSection />
         <SecuritySection />
+        <BookDemoSection />
       </main>
       <Footer />
     </div>
